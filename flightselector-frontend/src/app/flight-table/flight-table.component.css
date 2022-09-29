@@ -1,0 +1,9 @@
+button {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+thead {
+    background-color: var(--primary-blue);
+    color: white;
+}

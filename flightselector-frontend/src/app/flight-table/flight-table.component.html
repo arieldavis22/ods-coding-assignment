@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-sm-6">
+            <h1 class="text-center mt-3">Enter A Station Code or Name</h1>
+            <form 
+            #searchForm="ngForm"
+            class="form-inline">
+            <div class="row">
+                <div class="col-sm-11">
+                    <mat-form-field style="display: block; color:black; border-top: '';">
+                        <div>
+                            <input
+                            (keyup)="onKeyUp(searchForm)"
+                            (keydown)="onKeyDown()"
+                            list="search-l"
+                            type="text"
+                            id="search"
+                            class="form-control"
+                            ngModel
+                            name="search"
+                            required
+                            autocomplete="off"
+                            matInput
+                            [matAutocomplete]="auto"
+                            style="background-color: white; height: 30px;">
+                            <mat-autocomplete #auto="matAutocomplete">
+                                <mat-option *ngFor="let name of flightNames" [value]="name">{{name}}</mat-option>
+        
+                            </mat-autocomplete>
+                        </div>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-1">
+                    <div>
+                        <button (click)="onSearchForFlights(searchForm)" class="btn btn-primary" type="button">Search</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    <div *ngIf="flights.length > 0 && !isLoading">
+        <table class="table table-striped table-bordered my-3" style="background-color: white;">
+            <thead>
+                <tr>
+                    <th class="scope">Flight Number</th>
+                    <th class="scope">Desitnation (Short)</th>
+                    <th class="scope">Origin (Short)</th>
+                    <th class="scope">Destination</th>
+                    <th class="scope">Origin</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let flight of flights">
+                    <td>{{ flight.flt_num }}</td>
+                    <td>{{ flight.destination }}</td>
+                    <td>{{ flight.origin }}</td>
+                    <td>{{ flight.destination_full_name }}</td>
+                    <td>{{ flight.origin_full_name }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary mx-4" (click)="handlePrev()"> <<< Previous</button>
+                <button type="button" class="btn btn-primary mx-4" (click)="handleNext()">Next >>> </button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="flights.length == 0 && !isLoading" class="text-center my-5">
+        <h2>No Records Available!</h2>
+        <p>Either no records of this station exist, or an invalid station has been entered</p>
+    </div>
+    <div class="text-center my-5" *ngIf="isLoading">
+        <div class="spinner-border" role="status">
+            <span class="sr-only"></span>
+        </div>
+    </div>
+</div>
