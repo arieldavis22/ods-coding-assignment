@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  flight_identifier: MyString
+  flt_num: 1
+  scheduled_origin_gate: MyString
+  scheduled_destination_gate: MyString
+  out_gmt: 2022-09-28 10:06:43
+  in_gmt: 2022-09-28 10:06:43
+  off_gmt: 2022-09-28 10:06:43
+  on_gmt: 2022-09-28 10:06:43
+  destination: MyString
+  origin: MyString
+  destination_full_name: MyString
+  origin_full_name: MyString
+
+two:
+  flight_identifier: MyString
+  flt_num: 1
+  scheduled_origin_gate: MyString
+  scheduled_destination_gate: MyString
+  out_gmt: 2022-09-28 10:06:43
+  in_gmt: 2022-09-28 10:06:43
+  off_gmt: 2022-09-28 10:06:43
+  on_gmt: 2022-09-28 10:06:43
+  destination: MyString
+  origin: MyString
+  destination_full_name: MyString
+  origin_full_name: MyString

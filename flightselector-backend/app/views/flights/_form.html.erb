@@ -1,0 +1,77 @@
+<%= form_with(model: flight) do |form| %>
+  <% if flight.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(flight.errors.count, "error") %> prohibited this flight from being saved:</h2>
+
+      <ul>
+        <% flight.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :flight_identifier, style: "display: block" %>
+    <%= form.text_field :flight_identifier %>
+  </div>
+
+  <div>
+    <%= form.label :flt_num, style: "display: block" %>
+    <%= form.number_field :flt_num %>
+  </div>
+
+  <div>
+    <%= form.label :scheduled_origin_gate, style: "display: block" %>
+    <%= form.text_field :scheduled_origin_gate %>
+  </div>
+
+  <div>
+    <%= form.label :scheduled_destination_gate, style: "display: block" %>
+    <%= form.text_field :scheduled_destination_gate %>
+  </div>
+
+  <div>
+    <%= form.label :out_gmt, style: "display: block" %>
+    <%= form.datetime_field :out_gmt %>
+  </div>
+
+  <div>
+    <%= form.label :in_gmt, style: "display: block" %>
+    <%= form.datetime_field :in_gmt %>
+  </div>
+
+  <div>
+    <%= form.label :off_gmt, style: "display: block" %>
+    <%= form.datetime_field :off_gmt %>
+  </div>
+
+  <div>
+    <%= form.label :on_gmt, style: "display: block" %>
+    <%= form.datetime_field :on_gmt %>
+  </div>
+
+  <div>
+    <%= form.label :destination, style: "display: block" %>
+    <%= form.text_field :destination %>
+  </div>
+
+  <div>
+    <%= form.label :origin, style: "display: block" %>
+    <%= form.text_field :origin %>
+  </div>
+
+  <div>
+    <%= form.label :destination_full_name, style: "display: block" %>
+    <%= form.text_field :destination_full_name %>
+  </div>
+
+  <div>
+    <%= form.label :origin_full_name, style: "display: block" %>
+    <%= form.text_field :origin_full_name %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
